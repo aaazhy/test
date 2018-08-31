@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset=utf-8>
+
+</head>
+<body>
+<script >
+	var num1=1;
+	var num2=20,num5=40;
+	var _变量='中国';//可以识别，但是建议不这样写
+	// 变量作用域
+	function fn(){
+		alert('num1:'+num1);//num全局变量。
+		var num3=30;
+		alert('num3:'+num3);//30
+		num4=40;//隐式全局变量
+		alert('num4:'+num4);
+	}
+	fn();
+	alert('num3='+num3);//报错，局部变量。
+	alert('num4='+num4);
+</script>
+</body>
+</html>
