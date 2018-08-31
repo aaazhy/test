@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	function a(){
+		alert(1)
+	}
+	function b(name){
+		alert(name)
+	}
+	function c(a,b){
+		alert(a*b)
+	}
+//	alert(a.length);
+//	alert(b.length);
+//	alert(c.length);
+	
+	//call和apply()扩充函数作用域
+	//函数名.apply(this(函数调用的作用域，比如window，object),arguments（所有参数）)
+	//函数名.apply(this(函数调用的作用域，比如window，object等)，[参数1，参数2，。。。])
+	
+	function sum(a,b){
+		return a+b;
+	}
+	
+	function callFn1(num1,num2){
+		return sum.apply(this,arguments);
+	}
+	
+	function callFn2(num1,num2){
+		return sum.apply(this,[num1,num2]);
+	}
+//	alert(callFn1(2,3));
+//	alert(callFn2(5,6));
+	
+	
+	//函数名.call(this(window,object等)，参数1，参数2.。。。)	
+	
+	function callFn3(num1,num2){
+		return sum.call(this,num1,num2);
+	}
+	
+//	alert(callFn3(2,3));
+	
+	
+	var color='red';
+	var obj={color:'blue'};
+	function sayColor(){
+		alert(this.color);
+	}
+//	sayColor();
+	sayColor.call(this);
+	sayColor.call(window);
+	sayColor.call(obj);
+	var bindScope=sayColor.bind(obj);//bind方法必须要重新调用。
+	bindScope();
+</script>
